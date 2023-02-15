@@ -46,11 +46,12 @@ export default function Videos({ mode, callId, setMode, pc }) {
       });
     };
     localRef.current.srcObject = localStream;
+    // console.log(localRef, localRef.current, remoteRef);
     remoteRef.current.srcObject = remoteStream;
 
     setWebcamActive(true);
 
-    console.log("uooo");
+    // console.log("uooo");
     if (mode === "create") {
       const callDoc = doc(collection(db, "calls"));
       const offerCandidates = collection(callDoc, "offerCandidates");
@@ -190,7 +191,7 @@ export default function Videos({ mode, callId, setMode, pc }) {
                   .catch((err) => console.log(err));
               }}
             >
-              <CopyIcon /> Copy joining code
+              <CopyIcon />
             </button>
           </div>
         </div>
