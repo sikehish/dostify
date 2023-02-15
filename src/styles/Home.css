@@ -1,0 +1,20 @@
+.home {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.home-left span {
+  color: rgb(16, 0, 109);
+  font-weight: bold;
+  font-size: larger;
+  text-decoration: underline;
+}
+
+.home a {
+  text-decoration: none;
+}
+
+.home-right img {
+  width: 400px;
+}

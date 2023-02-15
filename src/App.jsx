@@ -1,50 +1,40 @@
-import { useEffect, useRef, useState } from "react";
-import Videos from "./Videos";
-import Menu from "./Menu";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+import Navbar from "./components/Navbar";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import React from "react";
+import { useAuthContext } from "./hooks/useAuthContext";
+import Footer from "./components/Footer";
+import VideoPage from "./VideoPage";
 
-import "./App.css";
-
-// Initialize WebRTC
-// useEffect(() => {
-//   const servers = {
-//     iceServers: [
-//       {
-//         urls: [
-//           "stun:stun1.l.google.com:19302",
-//           "stun:stun2.l.google.com:19302",
-//         ],
-//       },
-//     ],
-//     iceCandidatePoolSize: 10,
-//   };
-
-//   setPc(new RTCPeerConnection(servers));
-// }, []);
-
-const servers = {
-  iceServers: [
-    {
-      urls: ["stun:stun1.l.google.com:19302", "stun:stun2.l.google.com:19302"],
-    },
-  ],
-  iceCandidatePoolSize: 10,
-};
-
-function App() {
-  const [mode, setMode] = useState("home");
-  const [joinCode, setJoinCode] = useState("");
-
-  const [pc, setPc] = useState(new RTCPeerConnection(servers));
+export default function App() {
+  const { user, authIsReady } = useAuthContext();
 
   return (
-    <div className="app">
-      {mode === "home" ? (
-        <Menu joinCode={joinCode} setJoinCode={setJoinCode} setMode={setMode} />
-      ) : (
-        <Videos mode={mode} callId={joinCode} setMode={setMode} pc={pc} />
+    <div>
+      {authIsReady && (
+        <BrowserRouter>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route
+              path="/video"
+              element={user ? <VideoPage /> : <Navigate to="/login" />}
+            />
+            <Route
+              path="/signup"
+              element={!user ? <Signup /> : <Navigate to="/video" />}
+            />
+            <Route
+              path="/login"
+              element={!user ? <Login /> : <Navigate to="/video" />}
+            />
+            <Route path="*" element={<Navigate to="/" />} />
+          </Routes>
+          <Footer />
+        </BrowserRouter>
       )}
     </div>
   );
 }
-
-export default App;

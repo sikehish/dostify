@@ -1,0 +1,74 @@
+footer.footer {
+  margin-top: 6rem;
+  width: 100%;
+  font-family: "poppins";
+  text-align: center;
+  /* margin-top: 5rem; */
+  max-height: min-content;
+  background-color: yellow;
+  color: blue;
+  padding: 0;
+  /* padding: 1rem; */
+}
+
+footer .upper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding-top: 0;
+  align-items: center;
+  max-height: 100px;
+  /* padding: 10px; */
+}
+
+footer img {
+  padding: 0;
+  margin: none;
+  width: 100px;
+  /* padding-bottom: 20px; */
+}
+
+footer p {
+  width: 20%;
+  /* margin: 1rem; */
+}
+
+.icons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.icons a {
+  display: block;
+  margin: 0 1rem;
+  font-size: 1.5rem;
+  color: blue;
+}
+
+.icons a:hover {
+  color: #44337a;
+}
+
+.bottom-footer {
+  font-size: smaller;
+  /* border-bottom: 5px solid rgb(182, 223, 255); */
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  /* width: 100%; */
+  /* margin-top: 1rem; */
+  margin: 0;
+  padding: 0;
+  background-color: rgb(230, 230, 22);
+  color: black;
+  height: max-content;
+  width: 100%;
+}
+
+.bottom-footer span {
+  display: block;
+  min-width: auto;
+}
