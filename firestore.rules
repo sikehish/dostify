@@ -5,7 +5,7 @@ service cloud.firestore {
       allow read, create: if request.auth != null;
       allow update: if request.auth.uid == user_id;
     }
-    match /calls/{project_id} {
+    match /calls/{calls_id} {
       allow read, create, update, delete: if request.auth != null;
     }
   }
