@@ -199,7 +199,7 @@ export default function Videos({ mode, callId, setMode, pc }) {
               !locStream.getAudioTracks()[0].enabled;
           }}
           disabled={!webcamActive}
-          style={{ background: "none", color: "black" }}
+          style={{ background: "none", color: "red" }}
         >
           {audioEnabled ? <BsMicMuteFill /> : <BsFillMicFill />}
         </button>
@@ -209,7 +209,7 @@ export default function Videos({ mode, callId, setMode, pc }) {
             locStream.getVideoTracks()[0].enabled =
               !locStream.getVideoTracks()[0].enabled;
           }}
-          style={{ background: "none", color: "black" }}
+          style={{ background: "none", color: "red" }}
           disabled={!webcamActive}
         >
           {videoEnabled ? (
