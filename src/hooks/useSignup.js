@@ -47,6 +47,7 @@ function useSignup() {
       await setDoc(doc(db, "users", res.user.uid), {
         online: true,
         name,
+        email,
         description: desc,
         age,
         // lastLogin: createdAt,

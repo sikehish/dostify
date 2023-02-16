@@ -15,7 +15,7 @@ function Home() {
         </h2>
         <h3>Meet like minded people!</h3>
         <button className="btn">
-          <Link to={user ? "/expenses" : "/signup"}>Get Started</Link>
+          <Link to={user ? "users" : "signup"}>Get Started</Link>
         </button>
       </div>
       <div className="home-right">

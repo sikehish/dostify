@@ -29,11 +29,11 @@ export default function App() {
             />
             <Route
               path="/signup"
-              element={!user ? <Signup /> : <Navigate to="/dosts" />}
+              element={!user ? <Signup /> : <Navigate to="/users" />}
             />
             <Route
               path="/login"
-              element={!user ? <Login /> : <Navigate to="/dosts" />}
+              element={!user ? <Login /> : <Navigate to="/users" />}
             />
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>

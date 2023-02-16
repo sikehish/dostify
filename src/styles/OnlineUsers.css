@@ -1,21 +1,44 @@
+.online-users {
+  margin: 0;
+  padding: 0;
+  padding-top: 5rem;
+  text-align: center;
+  color: blueviolet;
+}
+
 .user-list {
   width: 250px;
-  min-width: 250px;
+  min-width: 700px;
   padding: 30px;
   box-sizing: border-box;
-  background: #fbfbfb;
+  text-align: center;
+  /* border: 2px solid red; */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 50px auto;
+  background: #fae6e6;
   color: var(--heading-color);
 }
-.user-list h2 {
-  text-align: right;
+
+.online-users h2 {
+  width: 50%;
+  text-align: center;
+  margin: 0 auto;
   margin-bottom: 40px;
   padding-bottom: 10px;
-  border-bottom: 1px solid #eee;
-  font-size: 1.2em;
+  border-bottom: 2px solid #fae6e6;
+  font-size: 1.5em;
+  font-weight: bolder;
 }
 .user-list .user-list-item {
   display: flex;
-  justify-content: flex-end;
+  /* background: #fbfbfb; */
+  color: blue;
+  /* border: 2px solid red; */
+  padding: 10px 20px;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
   align-items: center;
   margin: 20px auto;
 }
@@ -29,4 +52,19 @@
   background: #0ebb50;
   border-radius: 50%;
   margin-top: 2px;
+}
+
+.user-desc {
+  color: rgb(78, 71, 71);
+  text-align: justify;
+}
+
+.last-active {
+  color: grey;
+}
+
+.username {
+  color: blue;
+  font-size: large;
+  font-weight: bolder;
 }

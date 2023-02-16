@@ -11,11 +11,13 @@ import {
 export const useCollection = (col, q) => {
   const [documents, setDocuments] = useState(null);
   const [error, setError] = useState(null);
+  const [isPending, setIsPending] = useState(true);
 
   const qry = useRef(q).current;
   // const orderBy = useRef(orderBy).current
 
   useEffect(() => {
+    // setIsPending(true);
     let ref = collection(db, col);
     console.log(col, qry, q);
 
@@ -42,9 +44,14 @@ export const useCollection = (col, q) => {
       }
     );
 
+    setIsPending(false);
+
     // unsubscribe on unmount
-    return () => unsubscribe();
+    return () => {
+      // setIsPending(false);
+      unsubscribe();
+    };
   }, [col, qry]);
 
-  return { documents, error };
+  return { documents, error, isPending };
 };

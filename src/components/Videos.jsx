@@ -24,12 +24,17 @@ export default function Videos({ mode, callId, setMode, pc }) {
   //   }, []);
 
   const [webcamActive, setWebcamActive] = useState(false);
+  const [error, setError] = useState(null);
   const [roomId, setRoomId] = useState(callId);
-
+  const [clicked, setClicked] = useState(false);
+  const [locStream, setLocStream] = useState(null);
+  const [audioEnabled, setAudioEnabled] = useState(true);
+  const [videoEnabled, setVideoEnabled] = useState(true);
   const localRef = useRef();
   const remoteRef = useRef();
 
   const setupSources = async () => {
+    setError(false);
     const localStream = await navigator.mediaDevices.getUserMedia({
       video: true,
       audio: true,
@@ -46,6 +51,7 @@ export default function Videos({ mode, callId, setMode, pc }) {
       });
     };
     localRef.current.srcObject = localStream;
+    setLocStream(localStream);
     // console.log(localRef, localRef.current, remoteRef);
     remoteRef.current.srcObject = remoteStream;
 
@@ -101,7 +107,8 @@ export default function Videos({ mode, callId, setMode, pc }) {
         let callData = await getDoc(callDoc);
         if (callData.exists()) callData = callData.data();
         else {
-          console.log("Invalid code");
+          setError("Invalid dostify meet code. Call Again");
+          hangUp();
         }
         // console.log(callId, callData);
         const offerDescription = callData.offer;
@@ -166,6 +173,7 @@ export default function Videos({ mode, callId, setMode, pc }) {
   return (
     <div className="videos">
       {/* <h4>Local</h4> */}
+      {error && <h3>{error}</h3>}
       <video ref={localRef} autoPlay playsInline className="local" muted />
       {/* <h4>Remote</h4> */}
       <video ref={remoteRef} autoPlay playsInline className="remote" />
@@ -178,11 +186,34 @@ export default function Videos({ mode, callId, setMode, pc }) {
         >
           <HangupIcon />
         </button>
+        <button
+          onClick={(e) => {
+            setAudioEnabled((prev) => !prev);
+            locStream.getAudioTracks()[0].enabled =
+              !locStream.getAudioTracks()[0].enabled;
+          }}
+          disabled={!webcamActive}
+          // className="hangup button"
+        >
+          {audioEnabled ? "Mute" : "Unmute"}
+        </button>
+        <button
+          onClick={(e) => {
+            setVideoEnabled((prev) => !prev);
+            locStream.getVideoTracks()[0].enabled =
+              !locStream.getVideoTracks()[0].enabled;
+          }}
+          disabled={!webcamActive}
+          // className="hangup button"
+        >
+          {videoEnabled ? "Video Off" : "Video On"}
+        </button>
         <div tabIndex={0} role="button" className="more button">
           <MoreIcon />
           <div className="popover">
             <button
               onClick={() => {
+                setClicked(true);
                 navigator.clipboard
                   .writeText(roomId)
                   .then(() => {
@@ -191,7 +222,7 @@ export default function Videos({ mode, callId, setMode, pc }) {
                   .catch((err) => console.log(err));
               }}
             >
-              <CopyIcon />
+              {clicked ? <span>Copied!</span> : <CopyIcon />}
             </button>
           </div>
         </div>
