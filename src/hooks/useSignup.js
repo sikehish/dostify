@@ -50,7 +50,7 @@ function useSignup() {
         email,
         description: desc,
         age,
-        // lastLogin: createdAt,
+        uid: res.user.uid,
         lastActive: null,
       });
 

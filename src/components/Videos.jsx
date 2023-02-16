@@ -2,6 +2,12 @@ import { useRef, useState, useEffect } from "react";
 import { ReactComponent as HangupIcon } from "../assets/disconnect.svg";
 import { ReactComponent as MoreIcon } from "../assets/vertical.svg";
 import { ReactComponent as CopyIcon } from "../assets/copy.svg";
+import {
+  BsFillCameraVideoFill,
+  BsFillCameraVideoOffFill,
+  BsFillMicFill,
+  BsMicMuteFill,
+} from "react-icons/bs";
 
 import { db, auth } from "../firebase/config";
 import {
@@ -193,9 +199,9 @@ export default function Videos({ mode, callId, setMode, pc }) {
               !locStream.getAudioTracks()[0].enabled;
           }}
           disabled={!webcamActive}
-          // className="hangup button"
+          style={{ background: "none", color: "black" }}
         >
-          {audioEnabled ? "Mute" : "Unmute"}
+          {audioEnabled ? <BsMicMuteFill /> : <BsFillMicFill />}
         </button>
         <button
           onClick={(e) => {
@@ -203,10 +209,14 @@ export default function Videos({ mode, callId, setMode, pc }) {
             locStream.getVideoTracks()[0].enabled =
               !locStream.getVideoTracks()[0].enabled;
           }}
+          style={{ background: "none", color: "black" }}
           disabled={!webcamActive}
-          // className="hangup button"
         >
-          {videoEnabled ? "Video Off" : "Video On"}
+          {videoEnabled ? (
+            <BsFillCameraVideoOffFill />
+          ) : (
+            <BsFillCameraVideoFill />
+          )}
         </button>
         <div tabIndex={0} role="button" className="more button">
           <MoreIcon />

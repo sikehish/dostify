@@ -8,6 +8,8 @@ import { useAuthContext } from "./hooks/useAuthContext";
 import Footer from "./components/Footer";
 import VideoPage from "./pages/VideoPage";
 import OnlineUsers from "./pages/OnlineUsers";
+import ChatRoom from "./pages/ChatRoom";
+import EditProfile from "./pages/EditProfile";
 
 export default function App() {
   const { user, authIsReady } = useAuthContext();
@@ -28,12 +30,20 @@ export default function App() {
               element={user ? <VideoPage /> : <Navigate to="/login" />}
             />
             <Route
+              path="/profile"
+              element={user ? <EditProfile /> : <Navigate to="/login" />}
+            />
+            <Route
               path="/signup"
               element={!user ? <Signup /> : <Navigate to="/users" />}
             />
             <Route
               path="/login"
               element={!user ? <Login /> : <Navigate to="/users" />}
+            />
+            <Route
+              path="/chatroom/:id"
+              element={!user ? <Navigate to="/login" /> : <ChatRoom />}
             />
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
