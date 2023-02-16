@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 import Paper from "@mui/material/Paper";
-import { Button, Divider, IconButton } from "@mui/material";
+import { Divider } from "@mui/material";
 import SendIcon from "@mui/icons-material/Send";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
-import ListItemText from "@mui/material/ListItemText";
 import { useNavigate } from "react-router";
 import "../styles/ChatRoom.css";
 
@@ -27,6 +26,7 @@ function UsersComponent({ currentUid, setReceiver, users }) {
     });
     console.log(uid);
     navigate(`/chatroom/${uid}`);
+    console.log(users);
   };
 
   return (
@@ -44,8 +44,9 @@ function UsersComponent({ currentUid, setReceiver, users }) {
                     handleToggle(value.name, value.uid);
                   }}
                 >
+                  {value.online && <span className="online-user"></span>}
                   <span>
-                    {value.name},{value.email}
+                    {value.name},{value.email}{" "}
                   </span>
                 </ListItemButton>
               </ListItem>
@@ -152,7 +153,7 @@ export default function ChatRoom() {
           <h4 style={{ margin: 0 }}>{user.displayName} </h4>
         </div>
         <Divider />
-        All users
+        Users
         <div style={{ overflowY: "scroll" }}>
           <UsersComponent
             users={users}
@@ -175,7 +176,7 @@ export default function ChatRoom() {
           {receiver ? receiver.username : user?.displayName}{" "}
         </h4>
 
-        <Divider />
+        {/* <Divider /> */}
         <div
           style={{
             backgroundColor: "#FBEEE6",
@@ -237,9 +238,12 @@ export default function ChatRoom() {
             type="text"
             placeholder="Type message..."
           />
-          <IconButton onClick={sendMessage}>
+          <button
+            style={{ background: "none", color: "blue" }}
+            onClick={sendMessage}
+          >
             <SendIcon style={{ margin: 10 }} />
-          </IconButton>
+          </button>
         </div>
       </Paper>
     </div>
