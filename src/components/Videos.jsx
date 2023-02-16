@@ -1,9 +1,9 @@
 import { useRef, useState, useEffect } from "react";
-import { ReactComponent as HangupIcon } from "./assets/disconnect.svg";
-import { ReactComponent as MoreIcon } from "./assets/vertical.svg";
-import { ReactComponent as CopyIcon } from "./assets/copy.svg";
+import { ReactComponent as HangupIcon } from "../assets/disconnect.svg";
+import { ReactComponent as MoreIcon } from "../assets/vertical.svg";
+import { ReactComponent as CopyIcon } from "../assets/copy.svg";
 
-import { db, auth } from "./firebase/config";
+import { db, auth } from "../firebase/config";
 import {
   addDoc,
   deleteDoc,

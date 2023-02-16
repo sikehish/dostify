@@ -6,7 +6,7 @@
 
 .login-form label {
   display: block;
-  margin: 0 auto;
+  margin: 8px auto;
 }
 
 .login-form span {
@@ -19,4 +19,17 @@
   font-size: 1em;
   color: #704a4a;
   width: 100%;
+}
+
+.textarea {
+  border: none;
+  overflow: auto;
+  outline: none;
+
+  color: rgb(0, 0, 0);
+
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  resize: none;
 }

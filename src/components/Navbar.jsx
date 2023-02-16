@@ -27,7 +27,8 @@ const Navbar = () => {
 
           {user && (
             <>
-              <Link to="/expenses">Expenses</Link>
+              <Link to="/users">Dosts</Link>
+              <Link to="/video">Video Chat</Link>
               <div className="nav-logout">
                 <span>Welcome,{user.displayName}!</span>
                 <button className="btn" onClick={logout}>

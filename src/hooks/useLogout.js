@@ -1,6 +1,7 @@
 import { signOut } from "firebase/auth";
+import { doc, updateDoc } from "firebase/firestore";
 import { useEffect, useState } from "react";
-import { auth } from "../firebase/config";
+import { auth, db, timestamp } from "../firebase/config";
 import { useAuthContext } from "./useAuthContext";
 
 const useLogout = () => {
@@ -14,6 +15,12 @@ const useLogout = () => {
     setIsPending(true);
 
     try {
+      const { uid } = auth.currentUser;
+      const createdAt = timestamp.fromDate(new Date());
+      await updateDoc(doc(db, "users", uid), {
+        online: false,
+        lastActive: createdAt,
+      });
       await signOut(auth);
       dispatch({ type: "LOGOUT" });
       if (!isCancelled) {

@@ -1,4 +1,4 @@
-import { auth } from "../firebase/config";
+import { auth, db } from "../firebase/config";
 import {
   fetchSignInMethodsForEmail,
   signInWithEmailAndPassword,
@@ -8,6 +8,7 @@ import React, { useEffect } from "react";
 import validator from "validator";
 import { useState } from "react";
 import { useAuthContext } from "./useAuthContext";
+import { doc, updateDoc } from "firebase/firestore";
 
 function useLogin() {
   const [error, setError] = useState(null);
@@ -25,6 +26,13 @@ function useLogin() {
       const checkEmail = await fetchSignInMethodsForEmail(auth, email);
       if (!checkEmail.length) throw new Error("Email not registered");
       const res = await signInWithEmailAndPassword(auth, email, password);
+      const documentRef = doc(db, "users", res.user.uid);
+      // const createdAt = timestamp.fromDate(new Date());
+      await updateDoc(documentRef, {
+        online: true,
+        lastActive: null /*lastLogin: createdAt*/,
+      });
+
       dispatch({ type: "LOGIN", payload: res.user });
       // if (!res) throw new Error("Invalid password");
       console.log(res.user);

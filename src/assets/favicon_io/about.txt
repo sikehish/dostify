@@ -1,4 +1,4 @@
-This logo was generated using the following font:
+This favicon was generated using the following font:
 
 - Font Title: Rowdies
 - Font Author: Copyright 2018 The Rowdies Project Authors (https://github.com/magictype/rowdies)

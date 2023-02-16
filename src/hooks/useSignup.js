@@ -1,4 +1,4 @@
-import { auth } from "../firebase/config";
+import { auth, db } from "../firebase/config";
 import {
   createUserWithEmailAndPassword,
   updateProfile,
@@ -8,6 +8,8 @@ import {
 import React, { useEffect } from "react";
 import validator from "validator";
 import { useState } from "react";
+import { useAuthContext } from "./useAuthContext";
+import { doc, setDoc } from "firebase/firestore";
 
 function useSignup() {
   const [error, setError] = useState(null);
@@ -15,7 +17,9 @@ function useSignup() {
   const [isSucc, setIsSucc] = useState(false);
   const [isCancelled, setIsCancelled] = useState(false); //Used in cleanUp function
 
-  const signup = async (name, email, password, cpassword) => {
+  const { dispatch } = useAuthContext();
+
+  const signup = async (name, email, password, cpassword, age, desc) => {
     setError(null);
     setIsSucc(false);
     setIsPending(true);
@@ -28,12 +32,30 @@ function useSignup() {
 
       const checkEmail = await fetchSignInMethodsForEmail(auth, email);
       if (checkEmail.length) throw new Error("Email already in use");
+      if (parseInt(age) < 0) throw new Error("Enter valid age");
+      if (parseInt(age) < 12)
+        throw new Error("You must be atleast 12 years old to sign up");
+      if (!age || !desc.trim())
+        throw new Error("All fields are required. Fill them accordingly");
       const res = await createUserWithEmailAndPassword(auth, email, password);
       if (!res) throw new Error("Signup failed:(");
       console.log(res.user);
       await updateProfile(auth.currentUser, {
         displayName: name,
       });
+      // const createdAt = timestamp.fromDate(new Date());
+      await setDoc(doc(db, "users", res.user.uid), {
+        online: true,
+        name,
+        description: desc,
+        age,
+        // lastLogin: createdAt,
+        lastActive: null,
+      });
+
+      // dispatch login action
+      dispatch({ type: "LOGIN", payload: res.user });
+
       if (!isCancelled) {
         setError(false);
         setIsPending(false);

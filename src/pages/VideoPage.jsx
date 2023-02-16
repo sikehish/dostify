@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
-import Videos from "./Videos";
-import Menu from "./Menu";
+import Videos from "../components/Videos";
+import Menu from "../components/Menu";
 
-import "./styles/App.css";
+import "../styles/App.css";
 
 // Initialize WebRTC
 // useEffect(() => {
