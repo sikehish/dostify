@@ -1,10 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Paper from "@mui/material/Paper";
-import { Divider } from "@mui/material";
-import SendIcon from "@mui/icons-material/Send";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
+import { IoSend } from "react-icons/io5";
 import { useNavigate } from "react-router";
 import "../styles/ChatRoom.css";
 
@@ -30,29 +26,35 @@ function UsersComponent({ currentUid, setReceiver, users }) {
   };
 
   return (
-    <List
-      dense
-      sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}
+    <ul
+      // dense
+      className="users-comp"
     >
       {users.length > 0 &&
         users.map((value, index) => {
           if (currentUid !== value.uid)
             return (
-              <ListItem key={Math.random().toString()} disablePadding>
-                <ListItemButton
+              <li
+                key={Math.random().toString()}
+                className="user-userpanel"
+                // disablePadding
+              >
+                <button
+                  className="users-comp-btn"
+                  type="button"
                   onClick={() => {
                     handleToggle(value.name, value.uid);
                   }}
                 >
                   {value.online && <span className="online-user"></span>}
                   <span>
-                    {value.name},{value.email}{" "}
+                    {value.name}, {value.email}{" "}
                   </span>
-                </ListItemButton>
-              </ListItem>
+                </button>
+              </li>
             );
         })}
-    </List>
+    </ul>
   );
 }
 
@@ -152,8 +154,6 @@ export default function ChatRoom() {
         >
           <h4 style={{ margin: 0 }}>{user.displayName} </h4>
         </div>
-        <Divider />
-        Users
         <div style={{ overflowY: "scroll" }}>
           <UsersComponent
             users={users}
@@ -242,7 +242,7 @@ export default function ChatRoom() {
             style={{ background: "none", color: "blue" }}
             onClick={sendMessage}
           >
-            <SendIcon style={{ margin: 10 }} />
+            <IoSend />
           </button>
         </div>
       </Paper>

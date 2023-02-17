@@ -24,14 +24,13 @@ function useSignup() {
     setIsSucc(false);
     setIsPending(true);
     try {
-      if (name.trim() === "") throw new Error("Name left empty");
       if (!validator.isEmail) throw new Error("Invalid Email");
       if (password !== cpassword) throw new Error("Password not matching");
       if (password.length < 6)
         throw new Error("Password should have atleast 6 characters");
-
       const checkEmail = await fetchSignInMethodsForEmail(auth, email);
       if (checkEmail.length) throw new Error("Email already in use");
+      if (name.trim() === "") throw new Error("Name left empty");
       if (parseInt(age) < 0) throw new Error("Enter valid age");
       if (parseInt(age) < 12)
         throw new Error("You must be atleast 12 years old to sign up");

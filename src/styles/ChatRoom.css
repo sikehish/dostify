@@ -7,3 +7,29 @@
   border-radius: 50%;
   margin-top: 2px;
 }
+
+.users-comp .user-userpanel {
+  border-bottom: 1px solid rgb(185, 180, 180);
+}
+
+.users-comp {
+  padding: 0;
+  background-color: #f2eecb;
+  width: 100%;
+  max-width: 360;
+}
+
+.users-comp-btn {
+  color: black;
+  padding: 2px;
+  background-color: #f2eecb;
+}
+
+.users-comp-btn:hover {
+  color: black;
+  padding: 2px;
+  background-color: #d4d1b6;
+}
+/* 
+.users-comp li {
+} */

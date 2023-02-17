@@ -40,7 +40,7 @@ function EditProfile() {
         age,
         name,
       });
-      setSuccMsg("Successfully updated");
+      setSuccMsg("Profile edited successfully");
       setError(false);
       setIsPending(false);
     } catch (err) {
@@ -119,6 +119,7 @@ function EditProfile() {
               name=""
               id=""
               cols={50}
+              rows={10}
               value={desc}
               placeholder="Description"
               ref={textareaRef}
@@ -131,11 +132,22 @@ function EditProfile() {
           </label>
           {/* {!isPending && <button className="btn">Signup</button>}
       {isPending && <button className="btn" disabled>Loading</button>} */}
+          {error && (
+            <p style={{ textAlign: "left", fontWeight: "bolder" }}>
+              {error.message}
+            </p>
+          )}
           <button className="btn" disabled={isPending}>
             {isPending ? "Loading" : "Edit"}
           </button>
-          {error && <p>{error.message}</p>}
-          {succMsg && <p>{succMsg}</p>}
+          {succMsg && (
+            <p
+              className="succ"
+              style={{ fontWeight: "bolder", fontSize: "large" }}
+            >
+              {succMsg}
+            </p>
+          )}
         </form>
       }
     </>

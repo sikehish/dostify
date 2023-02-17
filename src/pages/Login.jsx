@@ -50,8 +50,8 @@ function Login() {
       <button className="btn" disabled={isPending}>
         {isPending ? "Loading" : "Login"}
       </button>
-      {error && <p>{error}</p>}
-      {isSucc && <p>{isSucc}</p>}
+      {error && <p className="code-error">{error}</p>}
+      {isSucc && <p className="succ">{isSucc}</p>}
     </form>
   );
 }

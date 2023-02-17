@@ -18,7 +18,8 @@ function DateAndTime({ seconds }) {
   //   const dateString = dte.toDateString();
   return (
     <span>
-      {hrs > 12 ? hrs - 12 : hrs}:{min} {hrs > 12 ? "PM" : "AM"}, {dateString}
+      {hrs > 12 ? hrs - 12 : hrs == 0 ? 12 : hrs}:{min} {hrs > 12 ? "PM" : "AM"}
+      , {dateString}
     </span>
   );
 }
@@ -31,7 +32,7 @@ export default function OnlineUsers() {
   return (
     <div className="online-users">
       {isPending && <h2>Loading users...</h2>}
-      {error && <div>{error}</div>}
+      {error && <div className="code-error">{error}</div>}
       {isPending == false && (
         <>
           {documents?.length <= 1 && <h2>No users yet</h2>}

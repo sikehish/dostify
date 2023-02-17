@@ -179,7 +179,7 @@ export default function Videos({ mode, callId, setMode, pc }) {
   return (
     <div className="videos">
       {/* <h4>Local</h4> */}
-      {error && <h3>{error}</h3>}
+      {error && <h3 className="code-error">{error}</h3>}
       <video ref={localRef} autoPlay playsInline className="local" muted />
       {/* <h4>Remote</h4> */}
       <video ref={remoteRef} autoPlay playsInline className="remote" />

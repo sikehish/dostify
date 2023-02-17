@@ -11,7 +11,7 @@ function Signup() {
   const [age, setAge] = useState("");
   const [desc, setDesc] = useState("");
   const { signup, error, isPending, isSucc } = useSignup();
-  // const [succMsg, setSuccMsg] = useState("");
+  const [page, setPage] = useState(0);
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
@@ -44,69 +44,113 @@ function Signup() {
   return (
     <form onSubmit={handleSubmit} className="login-form">
       <h2>Signup</h2>
-      <label>
-        <span>Name:</span>
-        <input
-          type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-      </label>
-      <label>
-        <span>Email:</span>
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-      </label>
-      <label>
-        <span>Password:</span>
-        <input
-          type="password"
-          value={pw}
-          onChange={(e) => setPw(e.target.value)}
-        />
-      </label>
-      <label>
-        <span>Confirm Password:</span>
-        <input
-          type="password"
-          value={cpw}
-          onChange={(e) => setCpw(e.target.value)}
-        />
-      </label>
-      <label>
-        <span>Age:</span>
-        <input
-          type="number"
-          value={age}
-          onChange={(e) => setAge(e.target.value)}
-        />
-      </label>
-      <label>
-        <span>Description:</span>
-        <textarea
-          name=""
-          id=""
-          cols={50}
-          value={desc}
-          placeholder="Description"
-          ref={textareaRef}
-          onChange={(e) => {
-            setDesc(e.target.value);
-            handleChange(e);
-          }}
-          className="textarea"
-        ></textarea>
-      </label>
+      {page == 0 && (
+        <>
+          <label>
+            <span>Email:</span>
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </label>
+          <label>
+            <span>Password:</span>
+            <input
+              type="password"
+              value={pw}
+              onChange={(e) => setPw(e.target.value)}
+            />
+          </label>
+          <label>
+            <span>Confirm Password:</span>
+            <input
+              type="password"
+              value={cpw}
+              onChange={(e) => setCpw(e.target.value)}
+            />
+          </label>
+        </>
+      )}
+
+      {page == 1 && (
+        <>
+          <label>
+            <span>Name:</span>
+            <input
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+          </label>
+          <label>
+            <span>Age:</span>
+            <input
+              type="number"
+              value={age}
+              onChange={(e) => setAge(e.target.value)}
+            />
+          </label>
+          <label>
+            <span>Description:</span>
+            <textarea
+              name=""
+              id=""
+              cols={50}
+              rows={10}
+              value={desc}
+              placeholder="Description"
+              ref={textareaRef}
+              onChange={(e) => {
+                setDesc(e.target.value);
+                handleChange(e);
+              }}
+              className="textarea"
+            ></textarea>
+          </label>{" "}
+        </>
+      )}
+      {error && (
+        <p
+          className="code-error"
+          style={{ textAlign: "left", fontWeight: "bolder" }}
+        >
+          Error: {error}
+        </p>
+      )}
       {/* {!isPending && <button className="btn">Signup</button>}
       {isPending && <button className="btn" disabled>Loading</button>} */}
-      <button className="btn" disabled={isPending}>
-        {isPending ? "Loading" : "Signup"}
-      </button>
-      {error && <p>{error}</p>}
-      {isSucc && <p>{isSucc}</p>}
+      {page == 1 && (
+        <button
+          type="button"
+          className="btn"
+          style={{ marginRight: "10px" }}
+          onClick={() => {
+            setPage((currPage) => currPage - 1);
+          }}
+        >
+          Back
+        </button>
+      )}
+
+      {page == 0 && (
+        <button
+          className="btn"
+          onClick={() => {
+            setPage((currPage) => currPage + 1);
+          }}
+        >
+          Next
+        </button>
+      )}
+
+      {page == 1 && (
+        <button className="btn" disabled={isPending}>
+          {isPending ? "Loading" : "Signup"}
+        </button>
+      )}
+      {/* {error && <p className="code-error">{error}</p>} */}
+      {isSucc && <p className="succ">{isSucc}</p>}
     </form>
   );
 }
