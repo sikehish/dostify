@@ -28,7 +28,9 @@ const Navbar = () => {
           {user && (
             <>
               <Link to="/users">Dosts</Link>
-              <Link to="/video">Video Chat</Link>
+              <Link target="_blank" rel="noopener noreferrer" to="/video">
+                Video Chat
+              </Link>
               <Link to="/chatroom/:id">Chat Room</Link>
               <Link to="/profile">Profile</Link>
               <div className="nav-logout">
