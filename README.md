@@ -60,7 +60,7 @@
 
 - **Video Chat**
 
-  ![alt text](src/assets/README/capture3.PNG "Dosts")
+  ![alt text](src/assets/README/capture4.PNG "Dosts")
   You can have a video chat with the dosts you've made and enjoy the webRTC P2P connection!
 
 ---
