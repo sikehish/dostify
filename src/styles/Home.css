@@ -1,7 +1,9 @@
-.home {
+.home-1 {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  padding: 80px 50px;
+  padding-top: 180px;
 }
 
 .home-left span {
@@ -11,10 +13,25 @@
   text-decoration: underline;
 }
 
-.home a {
+.home-1 a {
   text-decoration: none;
 }
 
 .home-right img {
   width: 400px;
+}
+
+.home-2 {
+  margin-top: 0;
+  padding-top: 80px;
+  padding-bottom: 60px;
+  display: flex;
+  line-height: 3em;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.home-2 img {
+  width: 300px;
 }

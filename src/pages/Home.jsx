@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useAuthContext } from "../hooks/useAuthContext";
 import logo from "../assets/home.png";
+import home2 from "../assets/home-2.png";
 import "../styles/Home.css";
 import Footer from "../components/Footer";
 
@@ -10,7 +11,7 @@ function Home() {
 
   return (
     <>
-      <div className="home">
+      <div className="home-1">
         <div className="home-left">
           <h2>
             Welcome to <span>dostify.</span>
@@ -24,6 +25,19 @@ function Home() {
           <img src={logo} alt="Expenses" />
         </div>
       </div>
+      <div className="home-2">
+        <div className="home-right">
+          <img src={home2} alt="Expenses" />
+        </div>
+        <div className="home-left">
+          <ul>
+            <li>Befriend Like minded people</li>
+            <li>Have one on one secure conversations with anyone.</li>
+            <li>Chat with anyone over text using ChatRoom.</li>
+          </ul>
+        </div>
+      </div>
+
       <Footer />
     </>
   );
