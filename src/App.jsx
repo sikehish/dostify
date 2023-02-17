@@ -45,7 +45,7 @@ export default function App() {
               path="/chatroom/:id"
               element={!user ? <Navigate to="/login" /> : <ChatRoom />}
             />
-            <Route path="*" element={<Navigate to="/" />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
           <Footer />
         </BrowserRouter>
