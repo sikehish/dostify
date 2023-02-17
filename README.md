@@ -51,5 +51,5 @@
 
 - **Chat Room**
 
-  ![alt text](src/assets/README/capture1.PNG "Dosts")
-  You can view all the people registered onto the _dostify_ website who we also refer to as **dosts**. You can click on the name of any of the user and mail them personally based on their description. On clicking the name, by your permission you'd be redirected to the mail page where you can mail the _dost_.
+  ![alt text](src/assets/README/capture2.PNG "Dosts")
+  You can chat with the dosts you want to make and so could anyone else, thereby enhancing your network and maybe your networth? 😉 Or you could have any conversation based on your interests? or a potential life partner perhaps? 😉 **Everything is possible on this app, the options are limitless!**
