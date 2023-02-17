@@ -55,3 +55,12 @@
 
   ![alt text](src/assets/README/capture2.PNG "Dosts")
   You can chat with the dosts you want to make and so could anyone else, thereby enhancing your network and maybe your networth? 😉 Or you could have any conversation based on your interests? Or a potential life partner perhaps? 😉 **Everything is possible on this app, the options are limitless!**
+
+<br>
+
+- **Video Chat**
+
+  ![alt text](src/assets/README/capture3.PNG "Dosts")
+  You can have a video chat with the dosts you've made and enjoy the webRTC P2P connection!
+
+---

@@ -24,6 +24,8 @@ function UsersComponent({ currentUid, setReceiver, users }) {
     console.log(users);
   };
 
+  useEffect(() => {}, []);
+
   return (
     <ul
       // dense
