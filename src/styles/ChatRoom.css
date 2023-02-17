@@ -13,13 +13,16 @@
 }
 
 .users-comp {
-  padding: 0;
+  list-style: none;
+  text-align: left;
+  padding: 0.5rem;
   background-color: #f2eecb;
   width: 100%;
   max-width: 360;
 }
 
 .users-comp-btn {
+  text-align: left;
   color: black;
   padding: 2px;
   background-color: #f2eecb;
