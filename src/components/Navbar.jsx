@@ -34,7 +34,7 @@ const Navbar = () => {
               <a
                 rel="noopener noreferrer"
                 href="http://main--dostify-1.netlify.app/video"
-                target="blank"
+                target="_blank"
               >
                 Video Chat
               </a>
