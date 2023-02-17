@@ -24,7 +24,9 @@ function UsersComponent({ currentUid, setReceiver, users }) {
     console.log(users);
   };
 
-  useEffect(() => {}, []);
+  // useEffect(()=>{
+
+  // },[])
 
   return (
     <ul
@@ -246,16 +248,16 @@ export default function ChatRoom() {
             }}
             type="text"
             placeholder="Type message..."
+            onKeyDown={(event) => {
+              if (event.key === "Enter" && chatMessage.trim() !== "") {
+                // console.log("YAYY");
+                sendMessage();
+              }
+            }}
           />
           <button
             style={{ background: "none", color: "blue" }}
             onClick={sendMessage}
-            // onKeyDown={(event) => {
-            //   if (event.key === "Enter") {
-            //     console.log("YAYY");
-            //     sendMessage();
-            //   }
-            // }}
           >
             <IoSend />
           </button>
