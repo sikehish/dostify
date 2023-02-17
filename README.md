@@ -8,6 +8,9 @@
 #### Steps to run this project:
 
 > git clone https://github.com/sikehish/dostify.git
+>
 > cd dostify
+>
 > npm init
+>
 > npm run dev
