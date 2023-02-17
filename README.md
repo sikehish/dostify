@@ -32,7 +32,7 @@
 
 ## **Why should you use dostify?**
 
----
+<!-- --- -->
 
 🤝 Befriend Like minded people <br>
 🤝 Have one on one secure conversations with anyone. <br>
@@ -42,8 +42,14 @@
 
 ## **Our features**
 
----
+<!-- --- -->
 
 - **Dosts**
 
   ![alt text](src/assets/README/capture1.PNG "Dosts")
+  You can view all the people registered onto the _dostify_ website who we also refer to as **dosts**. You can click on the name of any of the user and mail them personally based on their description. On clicking the name, by your permission you'd be redirected to the mail page where you can mail the _dost_.
+
+- **Chat Room**
+
+  ![alt text](src/assets/README/capture1.PNG "Dosts")
+  You can view all the people registered onto the _dostify_ website who we also refer to as **dosts**. You can click on the name of any of the user and mail them personally based on their description. On clicking the name, by your permission you'd be redirected to the mail page where you can mail the _dost_.
