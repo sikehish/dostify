@@ -18,8 +18,9 @@ function DateAndTime({ seconds }) {
   //   const dateString = dte.toDateString();
   return (
     <span>
-      {hrs > 12 ? hrs - 12 : hrs == 0 ? 12 : hrs}:{min} {hrs > 12 ? "PM" : "AM"}
-      , {dateString}
+      {hrs > 12 ? hrs - 12 : hrs == 0 ? 12 : hrs}:
+      {min < 10 && min > 0 ? "0" + min : min} {hrs > 12 ? "PM" : "AM"},{" "}
+      {dateString}
     </span>
   );
 }

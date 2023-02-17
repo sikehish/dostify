@@ -180,9 +180,16 @@ export default function Videos({ mode, callId, setMode, pc }) {
     <div className="videos">
       {/* <h4>Local</h4> */}
       {error && <h3 className="code-error">{error}</h3>}
-      <video ref={localRef} autoPlay playsInline className="local" muted />
-      {/* <h4>Remote</h4> */}
-      <video ref={remoteRef} autoPlay playsInline className="remote" />
+      <div className="vid-flex">
+        <p>
+          <h4>You</h4>
+          <video ref={localRef} autoPlay playsInline className="local" muted />
+        </p>
+        <p>
+          <h4>Your Dost</h4>
+          <video ref={remoteRef} autoPlay playsInline className="remote" />
+        </p>
+      </div>
 
       <div className="buttonsContainer">
         <button

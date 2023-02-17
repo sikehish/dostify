@@ -102,22 +102,32 @@ video {
   margin-right: 20px;
 }
 
-.videos .local {
-  position: absolute;
+.vid-flex {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 70vh;
+  background-color: transparent;
+  margin-bottom: 10rem;
+}
+
+.local {
+  /* position: absolute;
   bottom: 40px;
-  right: 40px;
+  right: 40px; */
   width: 280px;
   height: 210px;
   border-radius: 8px;
-  z-index: 10;
+  /* z-index: 10; */
 }
-
-.videos .remote {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
+.remote {
+  /* position: absolute;
+  bottom: 40px;
+  right: 40px; */
+  width: 280px;
+  height: 210px;
+  border-radius: 8px;
+  /* z-index: 10; */
 }
 
 .videos .buttonsContainer {

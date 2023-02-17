@@ -248,9 +248,12 @@ export default function ChatRoom() {
           <button
             style={{ background: "none", color: "blue" }}
             onClick={sendMessage}
-            onKeyDown={() => {
-              if (e.key == "Enter") sendMessage();
-            }}
+            // onKeyDown={(event) => {
+            //   if (event.key === "Enter") {
+            //     console.log("YAYY");
+            //     sendMessage();
+            //   }
+            // }}
           >
             <IoSend />
           </button>
