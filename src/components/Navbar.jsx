@@ -28,9 +28,16 @@ const Navbar = () => {
           {user && (
             <>
               <Link to="/users">Dosts</Link>
-              <Link target="_blank" rel="noopener noreferrer" to="/video">
+              <Link to="/video" target="_blank" rel="noopener noreferrer">
                 Video Chat
               </Link>
+              {/* <a
+                rel="noopener noreferrer"
+                href="https://main--dostify-1.netlify.app/video"
+                target="_blank"
+              >
+                Video Chat
+              </a> */}
               <Link to="/chatroom/:id">Chat Room</Link>
               <Link to="/profile">Profile</Link>
               <div className="nav-logout">
