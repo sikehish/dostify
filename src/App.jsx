@@ -2,7 +2,13 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Navbar from "./components/Navbar";
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import {
+  BrowserRouter,
+  Navigate,
+  Route,
+  Routes,
+  HashRouter,
+} from "react-router-dom";
 import React from "react";
 import { useAuthContext } from "./hooks/useAuthContext";
 import Footer from "./components/Footer";
@@ -17,7 +23,7 @@ export default function App() {
   return (
     <div>
       {authIsReady && (
-        <BrowserRouter>
+        <HashRouter>
           <Navbar />
           <Routes>
             <Route path="/" element={<Home />} />
@@ -48,7 +54,7 @@ export default function App() {
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
           <Footer />
-        </BrowserRouter>
+        </HashRouter>
       )}
     </div>
   );
