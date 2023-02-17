@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Paper from "@mui/material/Paper";
 import { IoSend } from "react-icons/io5";
 import { useNavigate } from "react-router";
 import "../styles/ChatRoom.css";
@@ -136,13 +135,14 @@ export default function ChatRoom() {
     <div
       style={{ display: "flex", flexDirection: "row", flex: 1, width: "100%" }}
     >
-      <Paper
+      <div
         style={{
           display: "flex",
           flex: 0.2,
           height: "95vh",
           margin: 10,
           flexDirection: "column",
+          backgroundColor: "#f2eecb",
         }}
       >
         <div
@@ -161,9 +161,9 @@ export default function ChatRoom() {
             currentUid={user?.uid}
           />
         </div>
-      </Paper>
+      </div>
 
-      <Paper
+      <div
         style={{
           display: "flex",
           flex: 0.8,
@@ -225,7 +225,14 @@ export default function ChatRoom() {
             })}
         </div>
 
-        <div style={{ width: "100%", display: "flex", flex: 0.08 }}>
+        <div
+          style={{
+            width: "100%",
+            display: "flex",
+            flex: 0.08,
+            backgroundColor: "#f2eecb",
+          }}
+        >
           <input
             value={chatMessage}
             onChange={(e) => setChatMessage(e.target.value)}
@@ -241,11 +248,14 @@ export default function ChatRoom() {
           <button
             style={{ background: "none", color: "blue" }}
             onClick={sendMessage}
+            onKeyDown={() => {
+              if (e.key == "Enter") sendMessage();
+            }}
           >
             <IoSend />
           </button>
         </div>
-      </Paper>
+      </div>
     </div>
   );
 }
