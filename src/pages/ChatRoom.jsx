@@ -152,7 +152,7 @@ export default function ChatRoom() {
             justifyContent: "space-between",
           }}
         >
-          {/* <h4 style={{ margin: 0 }}>{user.displayName} </h4> */}
+          <h4 style={{ margin: 0 }}>All Users</h4>
         </div>
         <div style={{ overflowY: "scroll" }}>
           <UsersComponent
