@@ -48,7 +48,7 @@ function VideoPage() {
   const [mode, setMode] = useState("home");
   const [joinCode, setJoinCode] = useState("");
 
-  const [pc, setPc] = useState(new RTCPeerConnection(servers));
+  const [pc, setPc] = useState("");
 
   return (
     <div className="app">
