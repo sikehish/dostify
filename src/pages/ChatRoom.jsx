@@ -152,7 +152,7 @@ export default function ChatRoom() {
             justifyContent: "space-between",
           }}
         >
-          <h4 style={{ margin: 0 }}>{user.displayName} </h4>
+          {/* <h4 style={{ margin: 0 }}>{user.displayName} </h4> */}
         </div>
         <div style={{ overflowY: "scroll" }}>
           <UsersComponent
@@ -173,7 +173,7 @@ export default function ChatRoom() {
         }}
       >
         <h4 style={{ margin: 2, padding: 10 }}>
-          {receiver ? receiver.username : user?.displayName}{" "}
+          {receiver ? receiver.name : user?.displayName}{" "}
         </h4>
 
         {/* <Divider /> */}

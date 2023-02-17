@@ -13,12 +13,14 @@ function Home() {
     <>
       <div className="home-1">
         <div className="home-left">
-          <h2>
+          <h1>
             Welcome to <span>dostify.</span>
-          </h2>
-          <h3>Meet like minded people!</h3>
+          </h1>
+          <h3>Meet like minded people from the comfort of your home 🤟</h3>
           <button className="btn">
-            <Link to={user ? "users" : "signup"}>Get Started</Link>
+            <Link to={user ? "users" : "signup"} style={{ color: "black" }}>
+              Get Started
+            </Link>
           </button>
         </div>
         <div className="home-right">
@@ -31,9 +33,9 @@ function Home() {
         </div>
         <div className="home-left">
           <ul>
-            <li>Befriend Like minded people</li>
-            <li>Have one on one secure conversations with anyone.</li>
-            <li>Chat with anyone over text using ChatRoom.</li>
+            <li>🤝 Befriend Like minded people</li>
+            <li>🤝 Have one on one secure conversations with anyone.</li>
+            <li>🤝 Chat with anyone over text using ChatRoom.</li>
           </ul>
         </div>
       </div>

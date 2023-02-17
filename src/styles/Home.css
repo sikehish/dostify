@@ -17,6 +17,10 @@
   text-decoration: none;
 }
 
+.home-1 h3 {
+  color: rgb(46, 46, 46);
+}
+
 .home-right img {
   width: 400px;
 }
@@ -30,6 +34,12 @@
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
+}
+
+.home-left ul li {
+  list-style: none;
+  font-size: large;
+  font-weight: 500;
 }
 
 .home-2 img {
