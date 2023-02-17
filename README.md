@@ -4,7 +4,7 @@
 
 ![alt text](src/assets/faviconio-logo/logo.svg "dostify logo")
 
-[🔗 Dostify: deployment](https://dostify.vercel.app/)<br>
+[🔗 Dostify: Vercel deployment](https://dostify.vercel.app/)<br>
 [🔗 Dostify: Netlify deployment](https://main--dostify-1.netlify.app/)
 
 <br>
@@ -54,4 +54,4 @@
 - **Chat Room**
 
   ![alt text](src/assets/README/capture2.PNG "Dosts")
-  You can chat with the dosts you want to make and so could anyone else, thereby enhancing your network and maybe your networth? 😉 Or you could have any conversation based on your interests? or a potential life partner perhaps? 😉 **Everything is possible on this app, the options are limitless!**
+  You can chat with the dosts you want to make and so could anyone else, thereby enhancing your network and maybe your networth? 😉 Or you could have any conversation based on your interests? Or a potential life partner perhaps? 😉 **Everything is possible on this app, the options are limitless!**
