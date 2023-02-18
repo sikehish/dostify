@@ -5,7 +5,7 @@
 ![alt text](src/assets/faviconio-logo/logo.svg "dostify logo")
 
 [🔗 Dostify: Vercel deployment](https://dostify.vercel.app/)<br>
-[🔗 Dostify: Netlify deployment](https://main--dostify-1.netlify.app/)
+[🔗 Dostify: Netlify deployment](https://dostify-1.netlify.app/)
 
 <br>
 
