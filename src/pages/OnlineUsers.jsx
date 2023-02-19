@@ -48,7 +48,7 @@ export default function OnlineUsers() {
                       <div>
                         {user.online && <span className="online-user"></span>}
                         <span>
-                          <Mailto>
+                          <Mailto email={user.email}>
                             <span className="username">{user.name}</span>
                           </Mailto>
                           , {user.age}

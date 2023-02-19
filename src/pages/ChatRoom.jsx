@@ -29,10 +29,7 @@ function UsersComponent({ currentUid, setReceiver, users }) {
   // },[])
 
   return (
-    <ul
-      // dense
-      className="users-comp"
-    >
+    <ul className="users-comp">
       {users.length > 0 &&
         users.map((value, index) => {
           if (currentUid !== value.uid)
